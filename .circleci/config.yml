@@ -1,8 +1,20 @@
 version: 2
 jobs:
-  build:
+  one:
     docker:
       - image: circleci/php:latest
     steps:
       - checkout
       - run: echo "first circle ci"
+  two:
+    docker:
+      - image: circleci/php:latest
+    steps:
+      - checkout
+      - run: echo "second circle ci"
+workflows:
+  version: 2
+  one_and_two:
+    jobs:
+      - one
+      - two
