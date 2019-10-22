@@ -11,10 +11,13 @@ jobs:
       - image: circleci/php:latest
     steps:
       - checkout
-      - run: echo "second circle ci"
+      - run: echo "second circle ci after first circle ci"
+
 workflows:
   version: 2
-  one_and_two:
+  build-test-and-deploy:
     jobs:
       - one
-      - two
+      - two:
+          requires:
+            - one
