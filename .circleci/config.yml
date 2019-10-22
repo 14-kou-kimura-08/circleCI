@@ -1,23 +1,8 @@
 version: 2
 jobs:
-  one:
+  build:
     docker:
       - image: circleci/php:latest
     steps:
       - checkout
-      - run: echo "first circle ci"
-  two:
-    docker:
-      - image: circleci/php:latest
-    steps:
-      - checkout
-      - run: echo "second circle ci after first circle ci"
-
-workflows:
-  version: 2
-  build-test-and-deploy:
-    jobs:
-      - one
-      - two:
-          requires:
-            - one
+      - run: echo "Hello CircleCI !!"
